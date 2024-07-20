@@ -4,6 +4,8 @@
     <title>Bài 02</title>
   </head>
   <body>
+
+    <!-- Tạo form -->
     <form
       action="https://www.w3schools.com/action_page.php"
       method="POST"
@@ -20,12 +22,49 @@
       <br />
       <label for="colors">Chọn màu sắc:</label>
       <br />
+
+      <!-- ComboBox -->
       <select id="colors" name="color">
         <option value="yellow">Vàng</option>
         <option value="red">Đỏ</option>
         <option value="green" selected>Xanh lá</option>
         <option value="black">Đen</option>
       </select>
+      <br />
+
+      <!-- Text area -->
+      <label for="note">Ghi chú:</label>
+      <br />
+      <textarea id="note" name="note"></textarea>
+      <br />
+
+      <!-- Check box -->
+      <p>Những ngôn ngữ lập trình bạn đã học:</p>
+      <br />
+      <input type="checkbox" name="language" id="ngonNguC" value="c">
+      <label for="ngonNguC">Ngôn ngữ C</label>
+      <br />
+      <input type="checkbox" name="language" id="ngonNguC" value="java">
+      <label for="ngonNguC">Ngôn ngữ Java</label>
+      <br />
+      <input type="checkbox" name="language" id="ngonNguC" value="php">
+      <label for="ngonNguC">Ngôn ngữ PHP</label>
+      <br />
+
+      <!-- Radio button -->
+      <p>Giới tính:</p>
+      <br />
+      <input type="radio" name="gioiTinh" id="nam" value="nam">
+      <label for="nam">Nam</label>
+      <br />
+      <input type="radio" name="gioiTinh" id="nu" value="nu">
+      <label for="nam">Nữ</label>
+      <br />
+      <input type="radio" name="gioiTinh" id="khac" value="khac">
+      <label for="nam">Khác</label>
+      <br />
+
+      <!-- Nút submit -->
       <br />
       <br />
       <input type="submit" value="Gửi">
