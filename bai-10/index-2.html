@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <!-- <style>
+      .d-none {
+        display: none;
+      }
+    </style>
+
+    <div id="ads-1" class="ads tes1 tes2 tes3">
+      <a href="#" target="_blank">
+        <img
+          src="https://th.bing.com/th/id/OIP.Q6fzu8_sPuVyyWXbTOWgWgHaEK?rs=1&pid=ImgDetMain"
+          alt=""
+          width="200px"
+        />
+      </a>
+    </div>
+    <button id="close">x</button>
+
+    <script>
+
+      const ads1 = document.querySelector("#ads-1");
+      setTimeout(() => {
+        ads1.setAttribute("class", "d-none");
+      }, 20000);
+
+      const closeButton = document.querySelector("#close");
+      closeButton.onclick = (event) => {
+        ads1.setAttribute("class", "d-none");
+        event.target.setAttribute("class", "d-none");
+      };
+
+    </script> -->
+    
+    <label for="color">Chọn màu bạn thích</label>
+    <select name="mauSac" id="color">
+      <option value="white">Màu trắng</option>
+      <option value="yellow">Màu vàng</option>
+      <option value="black">Màu đen</option>
+    </select>
+
+    <script>
+      const colorList = document.querySelector("#color");
+      color.onchange = (event) => {
+        console.log(event.target.value);
+      }
+    </script>
+  </body>
+</html>

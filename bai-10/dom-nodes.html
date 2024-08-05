@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script>
+      const div = document.createElement("div");
+      document.querySelector("body").appendChild(div);
+      div.innerHTML = `
+        <div id="ads-1" class="ads tes1 tes2 tes3">
+        <a href="#" target="_blank">
+          <img
+            src="https://th.bing.com/th/id/OIP.Q6fzu8_sPuVyyWXbTOWgWgHaEK?rs=1&pid=ImgDetMain"
+            alt=""
+            width="200px"
+          />
+        </a>
+        </div>
+      `;
+
+      const p = document.createElement("p");
+      const text = document.createTextNode("Content...")
+      p.appendChild(text);
+      document.querySelector("body").appendChild(p);
+
+    </script> -->
+
+    <ul id="menu">
+      <li>Item</li>
+      <li>Item</li>
+      <li>Item</li>
+    </ul>
+    <button id="button-add">Add</button>
+    <button id="button-remove">Remove</button>
+    <script>
+      const menu = document.querySelector("#menu");
+      const buttonAdd = document.querySelector("#button-add");
+      const buttonRemove = document.querySelector("#button-remove");
+      
+      let count = 0;
+      buttonAdd.addEventListener("click", () => {
+        const li1 = menu.querySelector("li:nth-child(3)")
+        console.log(li1)
+        const li = document.createElement("li");
+        li.innerHTML = "Item " + count++;
+        menu.insertBefore(li, li1);
+      });
+
+      buttonRemove.addEventListener("click", () => {
+        const li = document.querySelector("li:last-child");
+        menu.removeChild(li);
+      });
+
+      const li = document.querySelector("li:nth-child(2)");
+      const input = document.createElement("input");
+      menu.replaceChild(input, li);
+    </script>
+  </body>
+</html>
