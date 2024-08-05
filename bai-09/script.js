@@ -28,7 +28,11 @@
 
 // document.querySelector("#h2-01").innerText = "Test"
 
-const element = document.querySelector("#h2-01");
-const classText = element.getAttribute("class");
-console.log(classText);
-element.setAttribute("class", "text-2")
+// const element = document.querySelector("#h2-01");
+// const classText = element.getAttribute("class");
+// console.log(classText);
+// element.setAttribute("class", "text-2")
+
+const element = document.querySelector("#h2-02");
+element.style.fontSize = "50px";
+element.style.color = "purple";
