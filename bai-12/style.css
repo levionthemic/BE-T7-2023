@@ -1,0 +1,22 @@
+.product-item {
+  border: 1px solid #ddd;
+  width: 300px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.product-item h2 {
+  padding: 10px;
+  font-size: 20px;
+  color: green;
+  text-align: center;
+}
+
+
