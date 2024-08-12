@@ -1,3 +1,9 @@
-p {
-    color: red;
+table {
+  border: 1px solid #fff;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-collapse: collapse;
 }
