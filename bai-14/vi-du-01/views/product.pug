@@ -1,0 +1,8 @@
+extends layouts/default.pug
+include mixins/box-head.pug
+block main 
+  +box-head("Trang sản phẩm", "Đây là mô tả của trang sản phẩm")
+
+  ul(class="products")
+    each item in products
+      li #{item.title} - $#{item.price}

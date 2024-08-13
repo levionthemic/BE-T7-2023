@@ -1,4 +1,15 @@
 const express = require("express"); // Require ~ import package express
+
+// Connect to MongoDB through Mongoose
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/products-test-be-t7-2023-01");
+
+const Product = mongoose.model("Product", { 
+  title: String,
+  price: Number,
+  thumbnail: String
+});
+
 const app = express(); // gọi hàm và tạo biến app
 const port = 3000;
 
@@ -30,9 +41,14 @@ app.get("/", (req, res) => {
 //   );
 // });
 
-// app.get("/products", (req, res) => {
-//   res.send("<h1>Sản phẩm</h1>");
-// });
+app.get("/products", async (req, res) => {
+  const products = await Product.find({})
+  console.log(products);
+  res.render("product.pug", {
+    title: "Trang sản phẩm",
+    products: products
+  })
+});
 
 // app.get("/blog", (req, res) => {
 //   res.send("<h1>Blog</h1>");
