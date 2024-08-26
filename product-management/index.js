@@ -12,9 +12,17 @@ app.set("view engine", "pug");
 
 app.use(express.static("public"));
 
+// App Local Variables
+const systemConfig = require("./config/system");
+app.locals.prefixAdmin = systemConfig.prefixAdmin;
+
+
 // Routes
-const route = require("./routes/client/index.route");
-route(app);
+const routeClient = require("./routes/client/index.route");
+const routeAdmin = require("./routes/admin/index.route");
+routeClient(app);
+routeAdmin(app);
+
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
