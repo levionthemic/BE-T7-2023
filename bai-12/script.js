@@ -60,58 +60,58 @@
 //     console.log("Luon chay");
 //   })
 
-// fetch("https://dummyjson.com/products")
-//   .then((response) => response.json()) // json(): chuyển từ JSON => JS
-//   .then((data) => {
-//     console.log(data.products);
-//     const newArray = data.products.map((item) => {
-//       return `
-//         <div class="product-item">
-//           <img src="${item.thumbnail}">
-//           <h2>
-//             ${item.title}
-//           </h2>
-//           <div>$${item.price}</div>
-//         </div>
-//       `;
-//     });
+fetch("https://dummyjson.com/products")
+  .then((response) => response.json()) // json(): chuyển từ JSON => JS
+  .then((data) => {
+    console.log(data.products);
+    const newArray = data.products.map((item) => {
+      return `
+        <div class="product-item">
+          <img src="${item.thumbnail}">
+          <h2>
+            ${item.title}
+          </h2>
+          <div>$${item.price}</div>
+        </div>
+      `;
+    });
 
-//     const html = newArray.join("");
-//     console.log(html);
+    const html = newArray.join("");
+    // console.log(html);
 
-//     document.querySelector("#product-list").innerHTML = html;
-//   });
+    document.querySelector("#product-list").innerHTML = html;
+  });
 
 // Fetch API: https://restcountries.com/v2/all
 /* TO DO */
 
 // Async / Await
-const fetchApi = async (api) => {
-  const response = await fetch(api);
-  const data = await response.json();
-  return data;
-};
+// const fetchApi = async (api) => {
+//   const response = await fetch(api);
+//   const data = await response.json();
+//   return data;
+// };
 
-// fetchApi("https://dummyjson.com/products")
-//   .then((data) => {
-//     console.log(data);
-//   })
-fetchApi("http://localhost:3000/products").then((data) => {
-  console.log(data);
-  const newArray = data.map((item) => {
-    return `
-              <div class="product-item">
-                <img src="${item.thumbnail}">
-                <h2>
-                  ${item.title}
-                </h2>
-                <div>$${item.price}</div>
-              </div>
-            `;
-  });
+// // fetchApi("https://dummyjson.com/products")
+// //   .then((data) => {
+// //     console.log(data);
+// //   })
+// fetchApi("http://localhost:3000/products").then((data) => {
+//   console.log(data);
+//   const newArray = data.map((item) => {
+//     return `
+//               <div class="product-item">
+//                 <img src="${item.thumbnail}">
+//                 <h2>
+//                   ${item.title}
+//                 </h2>
+//                 <div>$${item.price}</div>
+//               </div>
+//             `;
+//   });
 
-  const html = newArray.join("");
-  console.log(html);
+//   const html = newArray.join("");
+//   console.log(html);
 
-  document.querySelector("#product-list").innerHTML = html;
-});
+//   document.querySelector("#product-list").innerHTML = html;
+// });
