@@ -1,4 +1,3 @@
-const system = require("../../config/system");
 const systemConfig = require("../../config/system");
 
 const dashboardRoutes = require("./dashboard.route");
