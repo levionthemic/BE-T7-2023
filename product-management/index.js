@@ -6,6 +6,8 @@ database.connect();
 
 const methodOverride = require("method-override");
 
+const bodyParser = require("body-parser");
+
 const app = express();
 const port = process.env.PORT;
 
@@ -15,6 +17,8 @@ app.set("view engine", "pug");
 app.use(express.static("public"));
 
 app.use(methodOverride("_method"));
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 // App Local Variables
 const systemConfig = require("./config/system");
