@@ -92,7 +92,9 @@ if (formChangeMulti) {
 
     const typeChange = e.target.elements.type.value;
     if (typeChange == "delete-all") {
-      const isConfirm = confirm("Bạn có chắc chắn muốn xoá những sản phẩm này?");
+      const isConfirm = confirm(
+        "Bạn có chắc chắn muốn xoá những sản phẩm này?"
+      );
       if (!isConfirm) {
         return;
       }
@@ -100,12 +102,19 @@ if (formChangeMulti) {
 
     if (inputsChecked.length) {
       let ids = [];
-      inputsChecked.forEach(item => {
+      inputsChecked.forEach((item) => {
         const id = item.value;
-        ids.push(id);
-      })
+        if (typeChange == "change-position") {
+          const position = item
+            .closest("tr")
+            .querySelector("input[name='position']").value;
+          ids.push(`${id}-${position}`);
+        } else {
+          ids.push(id);
+        }
+      });
       formChangeMulti.querySelector("input[name='ids']").value = ids.join(", ");
-      
+
       formChangeMulti.submit();
     } else {
       alert("Vui lòng chọn ít nhất 1 bản ghi!");

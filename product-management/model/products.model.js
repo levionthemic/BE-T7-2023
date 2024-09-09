@@ -9,9 +9,9 @@ const productSchema = new mongoose.Schema(
     stock: Number,
     thumbnail: String,
     status: String,
-    // position: Number,
     deleted: Boolean,
-    deleteAt: Date
+    deleteAt: Date,
+    position: Number,
   }
 );
 
