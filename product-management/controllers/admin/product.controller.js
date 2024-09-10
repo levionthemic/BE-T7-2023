@@ -113,3 +113,16 @@ module.exports.deleteItem = async (req, res) => {
   req.flash("success", `Đã xoá thành công sản phẩm!`);
   res.redirect("back");
 };
+
+// [GET] /admin/products/create
+module.exports.create = async (req, res) => {
+  res.render("admin/pages/products/create.pug", {
+    pageTitle: "Thêm mới sản phẩm",
+  });
+}
+
+// [POST] /admin/products/create
+module.exports.createPost = async (req, res) => {
+  console.log(req.body);
+  res.send("OK");
+}
