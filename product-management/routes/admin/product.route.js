@@ -1,5 +1,7 @@
 const express = require("express");
 const controller = require("../../controllers/admin/product.controller");
+const validate = require("../../validates/admin/product.validate");
+
 
 const routes = express.Router();
 
@@ -16,6 +18,11 @@ routes.patch("/change-multi", controller.changeMulti);
 routes.delete("/delete/:id", controller.deleteItem);
 
 routes.get("/create", controller.create);
-routes.post("/create", upload.single("thumbnail"), controller.createPost);
+routes.post(
+  "/create", 
+  upload.single("thumbnail"), 
+  validate.createPost,
+  controller.createPost
+);
 
 module.exports = routes;
