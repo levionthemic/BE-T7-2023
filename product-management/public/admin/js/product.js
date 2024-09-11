@@ -36,9 +36,7 @@ if (buttonsDelete.length) {
         formDeleteItem.action = action;
 
         formDeleteItem.submit();
-      } else {
-
-      }
+      } else {}
     })
   })
 }

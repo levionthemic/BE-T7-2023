@@ -35,4 +35,6 @@ routes.patch(
 
 routes.get("/detail/:id", controller.detail);
 
+
+
 module.exports = routes;
