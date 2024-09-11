@@ -63,7 +63,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%205s/thumbnail.png",
   "status": "active",
-  "deleted": false
+  "deleted": false,
+  "position": 21
 },
 {
   "_id": {
@@ -130,7 +131,11 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%206/thumbnail.png",
   "status": "active",
-  "deleted": false
+  "deleted": false,
+  "deleteAt": {
+    "$date": "2024-09-09T04:03:15.141Z"
+  },
+  "position": 20
 },
 {
   "_id": {
@@ -197,7 +202,11 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/thumbnail.png",
   "status": "active",
-  "deleted": false
+  "deleted": false,
+  "deleteAt": {
+    "$date": "2024-09-09T04:03:15.141Z"
+  },
+  "position": 3
 },
 {
   "_id": {
@@ -264,7 +273,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%20X/thumbnail.png",
   "status": "active",
-  "deleted": false
+  "deleted": false,
+  "position": 4
 },
 {
   "_id": {
@@ -331,7 +341,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/Oppo%20A57/thumbnail.png",
   "status": "inactive",
-  "deleted": false
+  "deleted": false,
+  "position": 5
 },
 {
   "_id": {
@@ -398,7 +409,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/Oppo%20F19%20Pro%20Plus/thumbnail.png",
   "status": "inactive",
-  "deleted": false
+  "deleted": false,
+  "position": 6
 },
 {
   "_id": {
@@ -466,7 +478,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/Oppo%20K1/thumbnail.png",
   "status": "inactive",
-  "deleted": false
+  "deleted": false,
+  "position": 7
 },
 {
   "_id": {
@@ -533,7 +546,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/Realme%20C35/thumbnail.png",
   "status": "inactive",
-  "deleted": false
+  "deleted": false,
+  "position": 8
 },
 {
   "_id": {
@@ -600,7 +614,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/Realme%20X/thumbnail.png",
   "status": "inactive",
-  "deleted": false
+  "deleted": false,
+  "position": 9
 },
 {
   "_id": {
@@ -667,7 +682,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/Realme%20XT/thumbnail.png",
   "status": "active",
-  "deleted": false
+  "deleted": false,
+  "position": 10
 },
 {
   "_id": {
@@ -734,7 +750,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/Samsung%20Galaxy%20S7/thumbnail.png",
   "status": "active",
-  "deleted": false
+  "deleted": false,
+  "position": 11
 },
 {
   "_id": {
@@ -801,7 +818,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/Samsung%20Galaxy%20S8/thumbnail.png",
   "status": "active",
-  "deleted": false
+  "deleted": false,
+  "position": 12
 },
 {
   "_id": {
@@ -868,7 +886,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/Samsung%20Galaxy%20S10/thumbnail.png",
   "status": "active",
-  "deleted": false
+  "deleted": false,
+  "position": 13
 },
 {
   "_id": {
@@ -935,7 +954,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/Vivo%20S1/thumbnail.png",
   "status": "active",
-  "deleted": false
+  "deleted": false,
+  "position": 14
 },
 {
   "_id": {
@@ -1002,7 +1022,8 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/Vivo%20V9/thumbnail.png",
   "status": "active",
-  "deleted": false
+  "deleted": false,
+  "position": 15
 },
 {
   "_id": {
@@ -1069,5 +1090,28 @@
   ],
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/Vivo%20X21/thumbnail.png",
   "status": "active",
-  "deleted": false
+  "deleted": false,
+  "position": 16
+},
+{
+  "_id": {
+    "$oid": "66e10e6f1e53cf3539fa38a3"
+  },
+  "title": "DHTT",
+  "description": "abc",
+  "price": 100,
+  "discountPercentage": 9,
+  "stock": 125,
+  "status": "inactive",
+  "deleted": false,
+  "position": 22,
+  "createdAt": {
+    "$date": "2024-09-11T03:28:47.898Z"
+  },
+  "updatedAt": {
+    "$date": "2024-09-11T03:33:50.016Z"
+  },
+  "slug": "dhtt",
+  "__v": 0,
+  "thumbnail": "/uploads/1726025420945-download.jfif"
 }]
