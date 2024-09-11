@@ -64,7 +64,7 @@
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%205s/thumbnail.png",
   "status": "active",
   "deleted": false,
-  "position": 21
+  "position": 1
 },
 {
   "_id": {
@@ -132,10 +132,7 @@
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%206/thumbnail.png",
   "status": "active",
   "deleted": false,
-  "deleteAt": {
-    "$date": "2024-09-09T04:03:15.141Z"
-  },
-  "position": 20
+  "position": 2
 },
 {
   "_id": {
@@ -203,9 +200,6 @@
   "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/thumbnail.png",
   "status": "active",
   "deleted": false,
-  "deleteAt": {
-    "$date": "2024-09-09T04:03:15.141Z"
-  },
   "position": 3
 },
 {
@@ -1095,23 +1089,67 @@
 },
 {
   "_id": {
-    "$oid": "66e10e6f1e53cf3539fa38a3"
+    "$oid": "66dfcc9389dec4fc842813ef"
   },
-  "title": "DHTT",
-  "description": "abc",
-  "price": 100,
-  "discountPercentage": 9,
-  "stock": 125,
-  "status": "inactive",
+  "title": "Sản phẩm 1",
+  "description": "",
+  "price": 0,
+  "discountPercentage": 0,
+  "stock": 0,
+  "thumbnail": "https://th.bing.com/th/id/R.cee19b70392f10a2370d488984527297?rik=7sIygG09%2bgfWdg&pid=ImgRaw&r=0",
+  "status": "active",
   "deleted": false,
-  "position": 22,
+  "position": 17,
   "createdAt": {
-    "$date": "2024-09-11T03:28:47.898Z"
+    "$date": "2024-09-10T04:35:31.992Z"
   },
   "updatedAt": {
-    "$date": "2024-09-11T03:33:50.016Z"
+    "$date": "2024-09-10T04:35:31.992Z"
   },
-  "slug": "dhtt",
-  "__v": 0,
-  "thumbnail": "/uploads/1726025420945-download.jfif"
+  "slug": "san-pham-1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66dfcc9889dec4fc842813f5"
+  },
+  "title": "Sản phẩm 1",
+  "description": "",
+  "price": 0,
+  "discountPercentage": 0,
+  "stock": 0,
+  "thumbnail": "https://th.bing.com/th/id/R.cee19b70392f10a2370d488984527297?rik=7sIygG09%2bgfWdg&pid=ImgRaw&r=0",
+  "status": "active",
+  "deleted": false,
+  "position": 18,
+  "createdAt": {
+    "$date": "2024-09-10T04:35:36.146Z"
+  },
+  "updatedAt": {
+    "$date": "2024-09-10T04:35:36.146Z"
+  },
+  "slug": "san-pham-1-5GDAlFIQG",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66dfd60a9afc9ec86c2ea594"
+  },
+  "title": "Sản phẩm 2",
+  "description": "",
+  "price": 0,
+  "discountPercentage": 0,
+  "stock": 0,
+  "thumbnail": "/uploads/1725945354076-wallpaperflare.com_wallpaper.jpg",
+  "status": "active",
+  "deleted": false,
+  "position": 19,
+  "createdAt": {
+    "$date": "2024-09-10T05:15:54.098Z"
+  },
+  "updatedAt": {
+    "$date": "2024-09-10T05:15:54.098Z"
+  },
+  "slug": "san-pham-2",
+  "__v": 0
 }]
