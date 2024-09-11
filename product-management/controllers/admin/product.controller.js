@@ -70,12 +70,18 @@ module.exports.changeMulti = async (req, res) => {
   switch (type) {
     case "active":
       await Product.updateMany({ _id: { $in: ids } }, { status: "active" });
-      req.flash("success", `Cập nhật trạng thái thành công của ${ids.length} sản phẩm!`);
+      req.flash(
+        "success",
+        `Cập nhật trạng thái thành công của ${ids.length} sản phẩm!`
+      );
       break;
 
     case "inactive":
       await Product.updateMany({ _id: { $in: ids } }, { status: "inactive" });
-      req.flash("success", `Cập nhật trạng thái thành công của ${ids.length} sản phẩm!`);
+      req.flash(
+        "success",
+        `Cập nhật trạng thái thành công của ${ids.length} sản phẩm!`
+      );
       break;
 
     case "delete-all":
@@ -95,8 +101,10 @@ module.exports.changeMulti = async (req, res) => {
 
         await Product.updateOne({ _id: id }, { position: position });
 
-        req.flash("success", `Đã đổi vị trí thành công của ${ids.length} sản phẩm!`);
-
+        req.flash(
+          "success",
+          `Đã đổi vị trí thành công của ${ids.length} sản phẩm!`
+        );
       }
       break;
     default:
@@ -120,7 +128,7 @@ module.exports.create = async (req, res) => {
   res.render("admin/pages/products/create.pug", {
     pageTitle: "Thêm mới sản phẩm",
   });
-}
+};
 
 // [POST] /admin/products/create
 module.exports.createPost = async (req, res) => {
@@ -133,13 +141,51 @@ module.exports.createPost = async (req, res) => {
   } else {
     req.body.position = parseInt(req.body.position);
   }
-  
+
   if (req.file) {
     req.body.thumbnail = `/uploads/${req.file.filename}`;
   }
-    
+
   const product = new Product(req.body);
   await product.save();
 
   res.redirect(`${systemConfig.prefixAdmin}/products`);
-}
+};
+
+// [GET] /admin/products/edit/:id
+module.exports.edit = async (req, res) => {
+  try {
+    const find = {
+      deleted: false,
+      _id: req.params.id,
+    };
+
+    const product = await Product.findOne(find);
+
+    res.render("admin/pages/products/edit", {
+      pageTitle: "Chỉnh sửa sản phẩm",
+      product: product,
+    });
+  } catch (error) {
+    res.redirect(`${systemConfig.prefixAdmin}/products`);
+  }
+};
+// [PATCH] /admin/products/create
+module.exports.editPatch = async (req, res) => {
+  req.body.price = parseInt(req.body.price);
+  req.body.discountPercentage = parseInt(req.body.discountPercentage);
+  req.body.stock = parseInt(req.body.stock);
+  req.body.position = parseInt(req.body.position);
+
+  if (req.file) {
+    req.body.thumbnail = `/uploads/${req.file.filename}`;
+  }
+  try {
+    await Product.updateOne({ _id: req.params.id }, req.body);
+    req.flash("success", "Cập nhật thành công!");
+  } catch (error) {
+    req.flash("error", "Cập nhật thất bại!");
+  }
+
+  res.redirect("back");
+};

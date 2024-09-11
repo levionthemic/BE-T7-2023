@@ -25,4 +25,12 @@ routes.post(
   controller.createPost
 );
 
+routes.get("/edit/:id", controller.edit);
+routes.patch(
+  "/edit/:id", 
+  upload.single("thumbnail"), 
+  validate.createPost,
+  controller.editPatch
+);
+
 module.exports = routes;
