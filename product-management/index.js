@@ -1,6 +1,8 @@
 const express = require("express");
 require("dotenv").config();
 
+const path = require("path");
+
 const database = require("./config/database");
 database.connect();
 
@@ -23,6 +25,8 @@ app.use(express.static(`${__dirname}/public`));
 app.use(methodOverride("_method"));
 
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use("/tinymce", express.static(path.join(__dirname, "node_modules", "tinymce")));
 
 // Flash
 app.use(cookieParser("keyboard cat"));

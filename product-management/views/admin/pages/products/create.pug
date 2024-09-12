@@ -26,9 +26,18 @@ block main
       label(for="desc") Mô tả
       textarea(
         type="text"
-        class="form-control"
+        class="form-control tinymce"
         id="desc"
         name="description"
+        rows="5"
+      )
+    div(class="form-group")
+      label(for="desc") Nội dung
+      textarea(
+        type="text"
+        class="form-control"
+        id="content"
+        name="content"
         rows="5"
       )
     div(class="form-group")
