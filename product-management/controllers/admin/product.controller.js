@@ -177,7 +177,7 @@ module.exports.edit = async (req, res) => {
   }
 };
 
-// [PATCH] /admin/products/create
+// [PATCH] /admin/products/edit/:id
 module.exports.editPatch = async (req, res) => {
   req.body.price = parseInt(req.body.price);
   req.body.discountPercentage = parseInt(req.body.discountPercentage);

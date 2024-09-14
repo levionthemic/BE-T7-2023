@@ -9,6 +9,7 @@ const routes = express.Router();
 const upload = multer();
 
 routes.get("/", controller.index);
+
 routes.get("/create", controller.create);
 routes.post(
   "/create",
@@ -18,6 +19,13 @@ routes.post(
   controller.createPost
 );
 
-
+routes.get("/edit/:id", controller.edit);
+routes.patch(
+  "/edit/:id",
+  upload.single("thumbnail"),
+  uploadCloud.upload,
+  validate.createPost,
+  controller.editPatch
+);
 
 module.exports = routes;
