@@ -11,4 +11,7 @@ routes.post("/create", controller.createPost);
 routes.get("/edit/:id", controller.edit);
 routes.patch("/edit/:id", controller.editPatch);
 
+routes.get("/permissions", controller.permissions);
+routes.patch("/permissions", controller.permissionsPatch);
+
 module.exports = routes;
