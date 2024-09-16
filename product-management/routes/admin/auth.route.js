@@ -8,4 +8,6 @@ const routes = express.Router();
 routes.get("/login", controller.login);
 routes.post("/login", validate.loginPost, controller.loginPost);
 
+routes.get("/logout", controller.logout);
+
 module.exports = routes;
