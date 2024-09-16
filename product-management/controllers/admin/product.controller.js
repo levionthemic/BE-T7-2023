@@ -138,7 +138,16 @@ module.exports.changeMulti = async (req, res) => {
 module.exports.deleteItem = async (req, res) => {
   const id = req.params.id;
   // await Product.deleteOne({ _id: id }); // Xoá vĩnh viễn
-  await Product.updateOne({ _id: id }, { deleted: true, deleteAt: new Date() }); // Xoá mềm
+  await Product.updateOne(
+    { _id: id }, 
+    { 
+      deleted: true, 
+      deletedBy: {
+        account_id: res.locals.user.id,
+        deletedAt: new Date()
+      }
+    }
+  ); // Xoá mềm
 
   req.flash("success", `Đã xoá thành công sản phẩm!`);
   res.redirect("back");
