@@ -10,6 +10,8 @@ const methodOverride = require("method-override");
 
 const bodyParser = require("body-parser");
 
+const moment = require("moment");
+
 const flash = require("express-flash");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -36,6 +38,7 @@ app.use(flash());
 // App Local Variables
 const systemConfig = require("./config/system");
 app.locals.prefixAdmin = systemConfig.prefixAdmin;
+app.locals.moment = moment;
 
 // Routes
 const routeClient = require("./routes/client/index.route");

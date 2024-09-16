@@ -1,4 +1,5 @@
 const Product = require("../../model/products.model");
+const Account = require("../../model/account.model");
 const ProductCategory = require("../../model/product-category.model");
 
 const systemConfig = require("../../config/system");
@@ -7,7 +8,6 @@ const filterStatusHelper = require("../../helpers/filterStatus");
 const searchHelper = require("../../helpers/search");
 const paginationHelper = require("../../helpers/pagination");
 const createTreeHelper = require("../../helpers/createTree");
-
 
 // [GET] /admin/products
 module.exports.index = async (req, res) => {
@@ -46,13 +46,20 @@ module.exports.index = async (req, res) => {
   } else {
     sort.position = "desc";
   }
-  
+
   // End Sort
 
   const products = await Product.find(find)
     .sort(sort)
     .limit(objectPagination.limitItems)
     .skip(objectPagination.skip);
+
+  for (const item of products) {
+    const user = await Account.findOne({ _id: item.createdBy.account_id });
+    if (user) {
+      item.accountFullName = user.fullName;
+    }
+  }
 
   res.render("admin/pages/products/index.pug", {
     pageTitle: "Danh sách sản phẩm",
@@ -148,7 +155,7 @@ module.exports.create = async (req, res) => {
   const newCategories = createTreeHelper.tree(categories);
   res.render("admin/pages/products/create.pug", {
     pageTitle: "Thêm mới sản phẩm",
-    categories: newCategories
+    categories: newCategories,
   });
 };
 
@@ -163,7 +170,11 @@ module.exports.createPost = async (req, res) => {
   } else {
     req.body.position = parseInt(req.body.position);
   }
-  
+
+  req.body.createdBy = {
+    account_id: res.locals.user.id,
+  };
+
   const product = new Product(req.body);
   await product.save();
 
@@ -179,17 +190,17 @@ module.exports.edit = async (req, res) => {
     };
 
     const product = await Product.findOne(find);
-  
+
     const categories = await ProductCategory.find({
       deleted: false,
     });
-  
+
     const newCategories = createTreeHelper.tree(categories);
 
     res.render("admin/pages/products/edit", {
       pageTitle: "Chỉnh sửa sản phẩm",
       product: product,
-      categories: newCategories
+      categories: newCategories,
     });
   } catch (error) {
     res.redirect(`${systemConfig.prefixAdmin}/products`);
@@ -231,5 +242,3 @@ module.exports.detail = async (req, res) => {
     res.redirect(`${systemConfig.prefixAdmin}/products`);
   }
 };
-
-
