@@ -69,8 +69,6 @@ module.exports.index = async (req, res) => {
         updatedBy.accountFullName = userUpdate.fullName;
       }
     }
-
-    
   }
 
   res.render("admin/pages/products/index.pug", {
@@ -207,24 +205,28 @@ module.exports.create = async (req, res) => {
 
 // [POST] /admin/products/create
 module.exports.createPost = async (req, res) => {
-  req.body.price = parseInt(req.body.price);
-  req.body.discountPercentage = parseInt(req.body.discountPercentage);
-  req.body.stock = parseInt(req.body.stock);
-  if (!req.body.position) {
-    const countProducts = await Product.countDocuments();
-    req.body.position = countProducts + 1;
+  if (res.locals.role.permissions.includes("products_create")) {
+    req.body.price = parseInt(req.body.price);
+    req.body.discountPercentage = parseInt(req.body.discountPercentage);
+    req.body.stock = parseInt(req.body.stock);
+    if (!req.body.position) {
+      const countProducts = await Product.countDocuments();
+      req.body.position = countProducts + 1;
+    } else {
+      req.body.position = parseInt(req.body.position);
+    }
+
+    req.body.createdBy = {
+      account_id: res.locals.user.id,
+    };
+
+    const product = new Product(req.body);
+    await product.save();
+
+    res.redirect(`${systemConfig.prefixAdmin}/products`);
   } else {
-    req.body.position = parseInt(req.body.position);
+    res.send("404 NOT FOUND!");
   }
-
-  req.body.createdBy = {
-    account_id: res.locals.user.id,
-  };
-
-  const product = new Product(req.body);
-  await product.save();
-
-  res.redirect(`${systemConfig.prefixAdmin}/products`);
 };
 
 // [GET] /admin/products/edit/:id
