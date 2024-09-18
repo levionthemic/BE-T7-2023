@@ -22,9 +22,10 @@ module.exports.addPost = async (req, res) => {
         _id: cartId,
         "products.product_id": productId,
       },
-      {
+      { $set: {
         "products.$.quantity": newQuantity,
       }
+    }
     );
   } else {
     const objectCart = {
