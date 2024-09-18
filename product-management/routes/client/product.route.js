@@ -5,6 +5,9 @@ const routes = express.Router();
 
 routes.get("/", controller.index);
 
-routes.get("/:slug", controller.detail);
+// routes.get("/:slug", controller.detail);
+
+routes.get("/:slugCategory", controller.category);
+
 
 module.exports = routes;
