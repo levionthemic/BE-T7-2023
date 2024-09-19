@@ -7,5 +7,5 @@ routes.get("/", controller.index);
 
 routes.post("/add/:productId", controller.addPost);
 
-
+routes.get("/delete/:productId", controller.delete);
 module.exports = routes;
