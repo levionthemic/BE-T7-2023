@@ -10,4 +10,6 @@ routes.post("/register", validate.registerPost, controller.registerPost);
 routes.get("/login", controller.login);
 routes.post("/login", validate.loginPost, controller.loginPost);
 
+routes.get("/logout", controller.logout);
+
 module.exports = routes;
