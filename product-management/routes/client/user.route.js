@@ -22,4 +22,11 @@ routes.post(
 routes.get("/password/otp", controller.otpPassword);
 routes.post("/password/otp", controller.otpPasswordPost);
 
+routes.get("/password/reset", controller.resetPassword);
+routes.post(
+  "/password/reset",
+  validate.resetPasswordPost,
+  controller.resetPasswordPost
+);
+
 module.exports = routes;
