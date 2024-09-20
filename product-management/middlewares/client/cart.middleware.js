@@ -2,6 +2,7 @@ const Cart = require("../../model/cart.model");
 
 module.exports.cartId = async (req, res, next) => {
   if (!req.cookies.cartId) {
+    console.log("Tạo cart");
     const cart = new Cart();
     await cart.save();
 

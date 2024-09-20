@@ -7,4 +7,7 @@ const routes = express.Router();
 routes.get("/register", controller.register);
 routes.post("/register", validate.registerPost, controller.registerPost);
 
+routes.get("/login", controller.login);
+routes.post("/login", validate.loginPost, controller.loginPost);
+
 module.exports = routes;
