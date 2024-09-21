@@ -28,7 +28,10 @@ app.use(methodOverride("_method"));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/tinymce", express.static(path.join(__dirname, "node_modules", "tinymce")));
+app.use(
+  "/tinymce",
+  express.static(path.join(__dirname, "node_modules", "tinymce"))
+);
 
 // Flash
 app.use(cookieParser("keyboard cat"));
@@ -45,6 +48,12 @@ const routeClient = require("./routes/client/index.route");
 const routeAdmin = require("./routes/admin/index.route");
 routeClient(app);
 routeAdmin(app);
+
+app.get("*", (req, res) => {
+  res.render("client/pages/errors/404.pug", {
+    pageTitle: "404 NOT FOUND",
+  });
+});
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
