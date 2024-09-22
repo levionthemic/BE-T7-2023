@@ -63,7 +63,7 @@
 @keyframes alert-hidden {
   from {
     right: 15px;
-  } 
+  }
   to {
     right: -100%;
     display: none;
@@ -239,7 +239,7 @@
 
 .product-detail .inner-stock span {
   color: white;
-  background: green; 
+  background: green;
   font-weight: 600;
   display: inline-block;
   padding: 3px 6px;
@@ -262,11 +262,12 @@
   scroll-behavior: smooth;
 }
 
-.inner-incoming, .inner-outgoing {
+.inner-incoming,
+.inner-outgoing {
   max-width: 40%;
 }
 
-.chat .inner-body .inner-incoming .inner-name{
+.chat .inner-body .inner-incoming .inner-name {
   font-weight: 600;
 }
 .chat .inner-body .inner-incoming .inner-content {
@@ -280,7 +281,7 @@
   margin-bottom: 10px;
 }
 .chat .inner-body .inner-outgoing .inner-content {
-  background-color: #FE5DA3;
+  background-color: #fe5da3;
   border-radius: 15px;
   padding: 5px 10px;
   color: white;
@@ -305,8 +306,8 @@
 
 .chat .inner-form button {
   border-radius: 15px;
-  border: 1px solid #FE5DA3;
-  background: #FE5DA3;
+  border: 1px solid #fe5da3;
+  background: #fe5da3;
   color: #fff;
   height: 32px;
   padding: 0 10px;
@@ -314,3 +315,13 @@
   cursor: pointer;
 }
 /* End Chat */
+
+/* Emoji-picker */
+.tooltip {
+  visibility: hidden;
+}
+.tooltip.shown {
+  visibility: visible;
+  opacity: 1;
+}
+/* End Emoji-picker */
