@@ -14,14 +14,8 @@ if (formSendData) {
 }
 
 // SERVER_RETURN_MESSAGE
-window.onload = () => {
-  const body = document.querySelector(".chat .inner-body");
-  body.scrollTop = body.scrollHeight;
-}
 socket.on("SERVER_RETURN_MESSAGE", (data) => {
-  
   const body = document.querySelector(".chat .inner-body");
-  
   const div = document.createElement("div");
   const myId = document.querySelector("[my-id]").getAttribute("my-id");
   if (myId != data.user_id) {
@@ -39,3 +33,9 @@ socket.on("SERVER_RETURN_MESSAGE", (data) => {
   body.appendChild(div);
   body.scrollTop = body.scrollHeight;
 });
+
+// Scroll Chat to Bottom
+const bodyChat = document.querySelector(".chat .inner-body");
+if (bodyChat) {
+  bodyChat.scrollTop = bodyChat.scrollHeight;
+}
