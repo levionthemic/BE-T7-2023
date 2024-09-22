@@ -16,6 +16,11 @@ const flash = require("express-flash");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 
+const http = require("http");
+
+// SocketIO
+const { Server } = require("socket.io");
+
 const app = express();
 const port = process.env.PORT;
 
@@ -32,6 +37,14 @@ app.use(
   "/tinymce",
   express.static(path.join(__dirname, "node_modules", "tinymce"))
 );
+
+// SocketIO
+const server = http.createServer(app);
+const io = new Server(server);
+
+io.on("connection", (socket) => {
+  console.log("a user connected", socket.id);
+});
 
 // Flash
 app.use(cookieParser("keyboard cat"));
@@ -55,6 +68,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`App listening on port ${port}`);
 });
