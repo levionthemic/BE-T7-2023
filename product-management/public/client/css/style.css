@@ -274,6 +274,7 @@
 .chat .inner-body .inner-outgoing {
   position: relative;
   left: 60%;
+  margin-bottom: 10px;
 }
 .chat .inner-body .inner-outgoing .inner-content {
   background-color: #FE5DA3;
