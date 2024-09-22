@@ -257,6 +257,9 @@
   padding: 10px;
   position: relative;
   width: 100%;
+  max-height: 450px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .inner-incoming, .inner-outgoing {
