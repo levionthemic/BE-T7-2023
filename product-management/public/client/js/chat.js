@@ -44,7 +44,7 @@ socket.on("SERVER_RETURN_MESSAGE", (data) => {
   let htmlImages = "";
 
   // Hiển thị data realtime
-  
+
   if (myId != data.user_id) {
     div.classList.add("inner-incoming");
     htmlFullName = `
@@ -70,8 +70,15 @@ socket.on("SERVER_RETURN_MESSAGE", (data) => {
     ${htmlContent}
     ${htmlImages}
   `;
+
   body.insertBefore(div, boxTyping);
   body.scrollTop = body.scrollHeight;
+
+  // Preview Image
+  const boxImages = div.querySelector(".inner-images");
+  if (boxImages) {
+    const gallery = new Viewer(boxImages);
+  }
 });
 
 // Scroll Chat to Bottom
@@ -169,3 +176,10 @@ if (elementListTyping) {
 }
 
 // End Typing
+
+// Preview Image
+const chatBody = document.querySelector(".chat .inner-body");
+if (chatBody) {
+  const gallery = new Viewer(chatBody);
+}
+// End Preview Image
