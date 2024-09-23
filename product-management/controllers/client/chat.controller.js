@@ -1,41 +1,15 @@
+const uploadCloudinary = require("../../helpers/uploadCloudinary");
 const Chat = require("../../model/chat.model");
 const User = require("../../model/user.model");
 
+const chatSocket = require("../../sockets/client/chat.socket");
+
 // [GET] /chat
 module.exports.index = async (req, res) => {
-  const user_id = res.locals.user.id;
-  const fullName = res.locals.user.fullName;
-
   // SocketIO
-  // _io.on() sẽ connect mới khi load lại trang => database lưu nhiều record của 1 message
-  _io.once("connection", (socket) => {
-    console.log("a user connected", socket.id);
+  await chatSocket(res);
 
-    socket.on("CLIENT_SEND_MESSAGE", async (content) => {
-      // Lưu vào database
-      const chat = new Chat({
-        user_id: user_id,
-        content: content,
-      });
-      await chat.save();
-
-      // Trả data về client
-      _io.emit("SERVER_RETURN_MESSAGE", {
-        user_id: user_id,
-        fullName: fullName,
-        content: content
-      });
-    });
-
-    socket.on("CLIENT_SEND_TYPING", (type) => {
-      socket.broadcast.emit("SERVER_RETURN_TYPING", {
-        user_id: user_id,
-        fullName: fullName,
-        type: type
-      })
-    });
-  });
-
+  
   const chats = await Chat.find({ deleted: false });
   for (const chat of chats) {
     const infoUser = await User.findOne({
