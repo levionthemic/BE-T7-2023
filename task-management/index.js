@@ -10,7 +10,6 @@ const port = process.env.PORT;
 
 database.connect();
 
-const Task = require("./models/task.model");
 
 // Routes Version 1
 routesApiVer1(app);
