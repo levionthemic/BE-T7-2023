@@ -32,7 +32,7 @@ module.exports.index = async (req, res) => {
   }
   // End Search
 
-  // Sort 
+  // Sort
   const sort = {};
   if (req.query.sortKey && req.query.sortValue) {
     sort[req.query.sortKey] = req.query.sortValue;
@@ -43,7 +43,7 @@ module.exports.index = async (req, res) => {
     .sort(sort)
     .skip(objectPagination.skip)
     .limit(objectPagination.limitItems);
-    
+
   res.json(tasks);
 };
 
@@ -57,5 +57,24 @@ module.exports.detail = async (req, res) => {
     res.json(tasks);
   } catch (error) {
     res.json("Not Found");
+  }
+};
+
+// [PATCH] /api/v1/tasks/change-status/:id
+module.exports.changeStatus = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    await Task.updateOne({ _id: id }, { status: req.body.status });
+
+    res.json({
+      code: 200,
+      message: "Cập nhật trạng thái thành công!",
+    });
+  } catch (error) {
+    res.json({
+      code: 400,
+      message: "Không tồn tại!"
+    })
   }
 };
