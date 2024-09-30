@@ -8,7 +8,7 @@ module.exports.requireAuth = async (req, res, next) => {
       token: token,
       deleted: false,
     })
-      .select("-password -_id -token");
+      .select("-password -token");
 
     if (!user) {
       res.json({
