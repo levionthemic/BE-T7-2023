@@ -2,7 +2,7 @@ const md5 = require("md5");
 
 const User = require("../models/user.model");
 const ForgotPassword = require("../models/forgot-password.model");
-const { generateRandomNumber } = require("../../../helpers/generate");
+const { generateRandomNumber, generateRandomString } = require("../../../helpers/generate");
 const { sendMail } = require("../../../helpers/sendMail");
 
 // [POST] /api/v1/users/register
@@ -26,6 +26,7 @@ module.exports.register = async (req, res) => {
     fullName: req.body.fullName,
     email: req.body.email,
     password: req.body.password,
+    token: generateRandomString(30),
   });
   await user.save();
 
@@ -95,7 +96,7 @@ module.exports.forgotPassword = async (req, res) => {
   const objectForgotPassword = {
     email: email,
     otp: otp,
-    expireAt: Date.now() + timeExpire * 60,
+    expireAt: Date.now() + timeExpire * 60 * 1000,
   };
 
   const forgotPassword = new ForgotPassword(objectForgotPassword);
