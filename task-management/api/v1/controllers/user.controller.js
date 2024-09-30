@@ -159,3 +159,29 @@ module.exports.resetPassword = async (req, res) => {
     message: "Đổi mật khẩu thành công!",
   });
 };
+
+// [GET] /api/v1/users/detail
+module.exports.detail = async (req, res) => {
+  try {
+    const token = req.cookies.token;
+
+    const user = await User.findOne({
+      token: token,
+      deleted: false,
+    })
+      .select("-password -_id -token");
+
+    console.log(token);
+
+    res.json({
+      code: 200,
+      message: "Thành công!",
+      info: user,
+    });
+  } catch (error) {
+    res.json({
+      code: 200,
+      message: "Thất bại!",
+    });
+  }
+};
