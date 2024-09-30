@@ -2,7 +2,7 @@ const md5 = require("md5");
 
 const User = require("../models/user.model");
 
-// [GET] /api/v1/tasks
+// [POST] /api/v1/users/register
 module.exports.register = async (req, res) => {
   req.body.password = md5(req.body.password);
 
@@ -32,6 +32,37 @@ module.exports.register = async (req, res) => {
   res.json({
     code: 200,
     message: "Tạo tài khoản thành công!",
+    token: token,
+  });
+};
+
+// [POST] /api/v1/users/login
+module.exports.login = async (req, res) => {
+  const user = await User.findOne({
+    email: req.body.email,
+    deleted: false,
+  });
+  if (!user) {
+    res.json({
+      code: 400,
+      message: "Đăng nhập không thành công!",
+    });
+    return;
+  }
+  if (md5(req.body.password) != user.password) {
+    res.json({
+      code: 400,
+      message: "Đăng nhập không thành công!",
+    });
+    return;
+  }
+ 
+  const token = user.token;
+  res.cookie("token", token);
+
+  res.json({
+    code: 200,
+    message: "Đăng nhập thành công!",
     token: token
   });
 };
