@@ -5,6 +5,8 @@ require("dotenv").config();
 
 const bodyParser = require("body-parser");
 
+const cors = require("cors");
+
 const routesApiVer1 = require("./api/v1/routes/index.route");
 
 const app = express();
@@ -17,6 +19,9 @@ database.connect();
 
 // parse application/json
 app.use(bodyParser.json());
+
+// cors
+app.use(cors());
 
 // Routes Version 1
 routesApiVer1(app);
