@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 
 const cors = require("cors");
 
+const cookieParser = require("cookie-parser");
+
 const routesApiVer1 = require("./api/v1/routes/index.route");
 
 const app = express();
@@ -22,6 +24,9 @@ app.use(bodyParser.json());
 
 // cors
 app.use(cors());
+
+// cookie-parser
+app.use(cookieParser());
 
 // Routes Version 1
 routesApiVer1(app);
