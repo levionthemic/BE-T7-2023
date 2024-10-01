@@ -13,7 +13,7 @@ block main
         .col-6.mb-3 
           div(class="song-item")
             div(class="inner-image")
-              a(href="/songs/detail/:slugSong")
+              a(href=`/songs/detail/${song.slug}`)
                 img(src=song.avatar)
             div(class="inner-content")
               div(class="inner-title")
