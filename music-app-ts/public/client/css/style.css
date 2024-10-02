@@ -113,4 +113,103 @@
 }
 /* End song-item */
 
+/* singer-detail */
+.singer-detail .inner-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #F57F20;
+  margin-bottom: 10px;
+}
+
+.singer-detail .inner-actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.singer-detail .inner-action {
+  margin-right: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.singer-detail .inner-action i {
+  font-size: 16px;
+  margin-right: 2px;
+}
+
+.singer-detail .inner-time i {
+  color: #585858;
+}
+
+.singer-detail .inner-like i {
+  color: #004cd0;
+}
+
+.singer-detail .inner-singer i {
+  color: #282828;
+}
+
+.singer-detail .inner-heart i {
+  color: rgb(209, 19, 19);
+}
+
+.singer-detail .inner-play {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.singer-detail .inner-play .inner-audio {
+  flex: 1;
+}
+
+.singer-detail .inner-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #F57F20;
+  margin-right: 20px;
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.singer-detail .inner-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.singer-detail .inner-desc {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.singer-detail .inner-desc .inner-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #F57F20;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.singer-detail .inner-desc .inner-text {
+  font-size: 14px;
+  padding: 10px 15px;
+}
+/* End singer-detail */
+
 
