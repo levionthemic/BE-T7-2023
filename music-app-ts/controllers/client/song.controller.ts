@@ -58,6 +58,28 @@ export const detail = async (req: Request, res: Response) => {
     pageTitle: "Chi tiết bài hát",
     song: song,
     topic: topic,
-    singer: singer
+    singer: singer,
+  });
+};
+
+// [PATCH] /songs/like/:typeLike/:idSong
+export const like = async (req: Request, res: Response) => {
+  const idSong: String = req.params.idSong;
+  const typeLike: String = req.params.typeLike;
+
+  const song = await Song.findOne({
+    _id: idSong,
+    status: "active",
+    deleted: false,
+  });
+
+  const newLike: Number = typeLike == "yes" ? song.like + 1 : song.like - 1;
+
+  await Song.updateOne({ _id: idSong }, { like: newLike });
+
+  res.json({
+    code: 200,
+    message: "Like thành công!",
+    newLike: newLike,
   });
 };

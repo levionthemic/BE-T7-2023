@@ -126,38 +126,50 @@
   flex-wrap: wrap;
 }
 
-.singer-detail .inner-action {
+.singer-detail .inner-actions .inner-action {
   margin-right: 20px;
   font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 5px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  color: #646464;
 }
 
-.singer-detail .inner-action i {
+.singer-detail .inner-actions .inner-action i {
   font-size: 16px;
-  margin-right: 2px;
+  margin-right: 5px;
 }
 
-.singer-detail .inner-time i {
-  color: #585858;
+.singer-detail .inner-actions .inner-like {
+  cursor: pointer;
 }
 
-.singer-detail .inner-like i {
+.singer-detail .inner-actions .inner-like i {
   color: #004cd0;
 }
 
-.singer-detail .inner-singer i {
-  color: #282828;
+.singer-detail .inner-actions .inner-like.active {
+  color: #004cd0;
 }
 
-.singer-detail .inner-heart i {
-  color: rgb(209, 19, 19);
+.singer-detail .inner-actions .inner-like.active i {
+  font-weight: 900;
+}
+
+.singer-detail .inner-actions .inner-heart {
+  cursor: pointer;
+}
+
+.singer-detail .inner-actions .inner-heart i {
+  color: #b90000;
 }
 
 .singer-detail .inner-play {
   display: flex;
   align-items: center;
-  margin: 15px 0;
+  margin-bottom: 20px;
 }
 
 .singer-detail .inner-play .inner-audio {
@@ -175,6 +187,7 @@
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-play-state: paused;
 }
 
 @keyframes spin {
