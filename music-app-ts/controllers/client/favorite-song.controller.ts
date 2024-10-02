@@ -24,7 +24,7 @@ export const index = async (req: Request, res: Response) => {
     song["singer"] = singer;
     songs.push(song);
   };
-  console.log(songs);
+  
   res.render("client/pages/favorite-songs/index.pug", {
     pageTitle: "Bài hát yêu thích",
     songs: songs,
